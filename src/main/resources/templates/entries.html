@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Entries</title>
+</head>
+<body>
+<h2>Stored Entries</h2>
+<a href="/add">Add New Entry</a>
+<ul>
+    <li th:each="entry : ${entries}">
+        ID: <b th:text="${entry.id}"></b>,
+        Name: <b th:text="${entry.Name}"></b>,
+        Address: <b th:text="${entry.Address}"></b>
+    </li>
+</ul>
+</body>
+</html>
