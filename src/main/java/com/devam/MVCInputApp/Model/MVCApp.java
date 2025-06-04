@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class MVCApp {
     @Id
-    private Integer id;
-    private String Name;
-    private String Address;
+    private String id;
+    private String name;
+    private String address;
 }

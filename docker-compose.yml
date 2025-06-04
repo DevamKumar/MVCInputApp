@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  db:
+    image: mongo:latest
+    container_name: mvcinputapp_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - mvcnetwork
+
+  app:
+    build: .
+    container_name: mvcinputapp
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://db:27017/MVCInputApp
+    networks:
+      - mvcnetwork
+
+volumes:
+  mongo_data:
+
+networks:
+  mvcnetwork:
